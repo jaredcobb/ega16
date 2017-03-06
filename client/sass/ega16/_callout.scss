@@ -1,0 +1,46 @@
+// EGA Callout Overrides
+// ---------------------
+.callout {
+
+    box-shadow: 0 0 0 5px, 11px 13px 0 4px $ega-black;
+	color: $ega-white;
+	background-color: $ega-white;
+
+	&.secondary {
+		color: $ega-light-gray;
+		background-color: $ega-light-gray;
+	}
+
+	&.primary {
+		color: $ega-light-cyan;
+		background-color: $ega-light-cyan;
+	}
+
+	&.success {
+		color: $ega-light-green;
+		background-color: $ega-light-green;
+	}
+
+	&.warning {
+		color: $ega-yellow;
+		background-color: $ega-yellow;
+	}
+
+	&.alert {
+		color: $ega-light-red;
+		background-color: $ega-light-red;
+	}
+
+	& > * {
+		color: $ega-black;
+	}
+
+	a {
+		color: $ega-light-blue;
+	}
+
+	a:hover {
+		color: $ega-light-blue;
+		background-color: $ega-yellow;
+	}
+}

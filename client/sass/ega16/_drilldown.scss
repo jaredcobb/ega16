@@ -1,0 +1,25 @@
+// Drilldown Menu Overrides
+// -----------------------
+.menu {
+
+	&.drilldown {
+
+		.is-drilldown-submenu-parent > a::after {
+			content: "\0025BA";
+			float: right;
+			font-size: 36px;
+			position: relative;
+			top: 4px;
+			line-height: 0;
+		}
+
+		.js-drilldown-back span {
+			font-size: 36px;
+			line-height: 0;
+			top: 4px;
+			position: relative;
+		}
+
+	}
+
+}

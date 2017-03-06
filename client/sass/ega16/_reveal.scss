@@ -1,0 +1,8 @@
+// EGA Reveal Overrides
+// --------------------
+.reveal {
+	box-shadow: 0 0 0 5px, 11px 13px 0 4px $ega-black;
+	&:focus {
+		outline: none;
+	}
+}

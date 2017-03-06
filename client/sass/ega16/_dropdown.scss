@@ -1,0 +1,28 @@
+// Dropdown Menu Overrides
+// -----------------------
+.menu {
+
+	&.dropdown {
+
+		.is-dropdown-submenu {
+			box-shadow: 0px 0px 0 5px $ega-light-gray;
+
+			a {
+				white-space: nowrap;
+			}
+
+			&.first-sub {
+
+				margin-left: 5px;
+				margin-top: 5px;
+
+			}
+
+			.is-dropdown-submenu {
+				margin-left: 10px;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,22 @@
+// EGA Typography Overrides
+// ------------------------
+
+a {
+	padding: 3px;
+	font-family: $header-font-family;
+}
+
+a:hover {
+	background-color: $ega-red;
+	font-family: $header-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	a {
+		color: $ega-light-cyan;
+	}
+	a:hover {
+		color: $ega-light-cyan;
+		background-color: inherit;
+	}
+}

@@ -1,0 +1,37 @@
+// Content
+// -------
+#content {
+
+	margin-top: 2rem;
+
+	#primary {
+
+		header.page-header {
+			margin-bottom: rem-calc(60);
+		}
+
+		article.post {
+			margin-bottom: rem-calc(60);
+		}
+
+		div.custom-content {
+			margin-bottom: rem-calc(60);
+		}
+
+	}
+}
+
+// Sidebar
+// -------
+#sidebar-wrapper {
+	section {
+		margin-bottom: rem-calc(20px);
+	}
+}
+
+
+// Footer
+// ------
+footer.site-footer {
+	margin-top: rem-calc(60);
+}

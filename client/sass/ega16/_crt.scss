@@ -1,0 +1,133 @@
+// CRT Monitor Effect
+// ------------------
+// easing functions via http://easings.net/
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+// crt lines
+$crt-pixels: #111010;
+
+// Keyframes
+// ---------
+@keyframes flash {
+	@for $i from 0 through 30 {
+		#{percentage($i*(1/30))}{
+			opacity:random();
+		}
+	}
+}
+
+@keyframes turn-on{
+	0% {
+		transform: scale(1,0.8) translate3d(0,0,0);
+		filter: brightness(30);
+		opacity: 1;
+	}
+	3.5% {
+		transform: scale(1,0.8) translate3d(0,100%,0);
+	}
+	3.6% {
+		transform: scale(1,0.8) translate3d(0,-100%,0);
+		opacity: 1;
+	}
+	9% {
+		transform: scale(1.3,0.6) translate3d(0,100%,0);
+		filter: brightness(30);
+		opacity: 0;
+	}
+	11% {
+		transform: scale(1,1) translate3d(0,0,0);
+		filter: contrast(0) brightness(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1,1) translate3d(0,0,0);
+		filter: contrast(1) brightness(1.2) saturate(1.3);
+		opacity: 1;
+	}
+}
+
+@keyframes turn-off{
+	0% {
+		transform: scale(1,1.3) translate3d(0,0,0);
+		filter: brightness(1);
+		opacity: 1;
+	}
+	60% {
+		transform: scale(1.3,0.001) translate3d(0,0,0);
+		filter: brightness(10);
+	}
+	100% {
+		animation-timing-function: $ease-in-expo;
+		transform: scale(0.000,0.0001) translate3d(0,0,0);
+		filter: brightness(50);
+	}
+}
+
+body.crt-on {
+	&::after{
+		content: " ";
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: transparentize($crt-pixels, 0.9);
+		opacity: 0;
+		z-index: 10;
+		pointer-events: none;
+		animation: flash 1.2s infinite;
+	}
+	&::before{
+		content: " ";
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background:
+		linear-gradient(
+			transparentize( $crt-pixels, 1 ) 50%,
+			transparentize( darken( $crt-pixels, 10 ), 0.75 ) 50%
+		),
+		linear-gradient(
+			90deg,
+			transparentize( #ff0000, 0.94 ),
+			transparentize( #00ff00, 0.98 ),
+			transparentize( #0000ff, 0.94 )
+		);
+		z-index: 10;
+		background-size: 100% 2px, 3px 100%;
+		pointer-events: none;
+	}
+
+	.crt-toggle a {
+		background-color: $ega-yellow;
+
+		&:hover {
+			color: $ega-black;
+		}
+	}
+
+	#content img {
+		display:none;
+	}
+
+	canvas.pixelated {
+		border: rem-calc(12) double $ega-white;
+		padding: rem-calc(12);
+	}
+
+}
+
+body.crt-toggle-on {
+	.site {
+		animation: turn-on 4s linear;
+		animation-fill-mode: forwards;
+	}
+}
+
+body.crt-toggle-off {
+	.site {
+		animation: turn-off 0.55s $ease-out-expo;
+	}
+}

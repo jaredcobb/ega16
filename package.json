@@ -1,0 +1,33 @@
+{
+  "name": "ega16",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jaredcobb/ega16.git"
+  },
+  "description": "Build information for the EGA 16 theme (js and sass/css)",
+  "author": {
+    "name": "Jared Cobb",
+    "email": "wordpress@jaredcobb.com"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "~6.18.0",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "foundation-sites": "6.3.0",
+    "grunt": "~1.0.1",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-babel": "~6.0.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~2.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-sass": "~2.0.0",
+    "grunt-scss-to-json": "~1.0.1"
+  },
+  "foundationPath": "node_modules/foundation-sites",
+  "cssPath": "static/css",
+  "jsPath": "static/js"
+}

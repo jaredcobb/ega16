@@ -1,0 +1,18 @@
+/*
+Theme Name: EGA 16
+Theme URI: http://github.com/jaredcobb/ega16
+Author: Jared Cobb
+Author URI: http://www.jaredcobb.com
+Description: Feeling nostalgic for a simpler time? Let's go back!
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: ega16
+Tags: ega, retro, 80s, classic, 16
+*/
+
+/*--------------------------------------------------------------
+>>> WAIT, WHERE'S THE CSS?
+----------------------------------------------------------------
+
+Check out the /client directory. I'm using build tools to generate the theme's CSS.

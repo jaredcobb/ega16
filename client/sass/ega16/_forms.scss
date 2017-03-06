@@ -1,0 +1,18 @@
+// EGA Form Overrides
+// ------------------
+
+input[type='submit'], input[type='button'] {
+	padding: 4px 10px;
+	margin-bottom: rem-calc(20);
+	color: $ega-black;
+	line-height: rem-calc(20);
+	text-align: center;
+	font-family: "IBM CGA";
+	vertical-align: middle;
+	background: $ega-light-gray;
+	border: 0;
+	border-width: 0;
+	border-radius: 0;
+	box-shadow: 10px 10px 0 $ega-black;
+	cursor: pointer;
+}

@@ -1,0 +1,32 @@
+// Custom EGA Components
+// ---------------------
+
+// Top Game Header Bar
+// -------------------
+#game-header {
+
+	&.top-bar {
+
+		background-color: $ega-white;
+		color: $ega-black;
+
+		ul {
+			background-color: inherit;
+			font-family: $header-font-family;
+
+			li span.points {
+				padding: 0.7rem 1rem;
+				line-height: 1rem;
+				display: block;
+			}
+		}
+
+		a:hover {
+			background-color: inherit;
+			color: inherit;
+		}
+	}
+
+}
+
+

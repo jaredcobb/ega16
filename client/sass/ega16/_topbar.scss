@@ -1,0 +1,12 @@
+// EGA Topbar Overrides
+// --------------------
+
+.top-bar a {
+	font-family: $header-font-family;
+	color: $ega-black;
+	&:hover {
+		color: $ega-light-gray;
+		background-color: $ega-black;
+	}
+}
+

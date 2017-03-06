@@ -1,0 +1,30 @@
+// EGA Fonts
+// ---------
+@font-face {
+    font-family: 'IBM CGA';
+    src: url('../fonts/PxPlus_IBM_CGA.woff2') format('woff2'),
+         url('../fonts/PxPlus_IBM_CGA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBM CGA Thin';
+    src: url('../fonts/PxPlus_IBM_CGAthin.woff2') format('woff2'),
+         url('../fonts/PxPlus_IBM_CGAthin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*@font-face {
+    font-family: 'IBM EGA 8';
+    src: url('../fonts/PxPlus_IBM_EGA8.woff2') format('woff2'),
+         url('../fonts/PxPlus_IBM_EGA8.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBM EGA 9';
+    src: url('../fonts/PxPlus_IBM_EGA9.woff2') format('woff2'),
+         url('../fonts/PxPlus_IBM_EGA9.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
