@@ -1,4 +1,4 @@
-/*! ega16 - v0.1.0 - 2017-03-05*/
+/*! ega16 - v0.1.0 - 2017-03-11*/
 !function($) {
 
 "use strict";
@@ -3833,28 +3833,26 @@ Foundation.plugin(Sticky, 'Sticky');
     },
 
     /**
-     * A PHP Developer's attempt at playing with canvas for the first time
+     * Use canvas to limit color scheme and pixelate the images
      */
     drawImages() {
       const self = this;
-      const imageElements = document.querySelectorAll('#content img');
+      const imageElements = document.querySelectorAll('#page img:not(.no-crt)');
       let w;
       let h;
       for (let i = 0; i < imageElements.length; i += 1) {
         const size = 0.5;
         const canvas = document.createElement('canvas');
-        const tempCanvas = document.createElement('canvas');
-        const colorCanvas = document.createElement('canvas');
+        const pixelatedCanvas = document.createElement('canvas');
         canvas.width = imageElements[i].width;
         canvas.height = imageElements[i].height;
-        tempCanvas.width = imageElements[i].width;
-        tempCanvas.height = imageElements[i].height;
+        pixelatedCanvas.width = imageElements[i].width;
+        pixelatedCanvas.height = imageElements[i].height;
 
         w = canvas.width * size;
         h = canvas.height * size;
         const ctx = canvas.getContext('2d');
-        const tempctx = tempCanvas.getContext('2d');
-        const colorctx = colorCanvas.getContext('2d');
+        const pctx = pixelatedCanvas.getContext('2d');
 
         const pixelatedImage = new Image();
         pixelatedImage.src = imageElements[i].src;
@@ -3863,12 +3861,12 @@ Foundation.plugin(Sticky, 'Sticky');
         ctx.webkitImageSmoothingEnabled = false;
         ctx.imageSmoothingEnabled = false;
 
-        tempctx.drawImage(pixelatedImage, 0, 0, w, h);
+        pctx.drawImage(pixelatedImage, 0, 0, w, h);
 
         let imageData = null;
 
         try {
-          imageData = tempctx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+          imageData = pctx.getImageData(0, 0, pixelatedCanvas.width, pixelatedCanvas.height);
         } catch (e) {
           imageData = null;
         }
@@ -3881,23 +3879,24 @@ Foundation.plugin(Sticky, 'Sticky');
             mappedColor = self.mapColorToPalette(data[j], data[j + 1], data[j + 2]);
             if (
               data[j + 3] > 10
-              && typeof mappedColor !== 'undefined'
             ) {
               data[j] = mappedColor.r;
               data[j + 1] = mappedColor.g;
               data[j + 2] = mappedColor.b;
             }
           }
-          colorctx.putImageData(imageData, 0, 0);
-          ctx.drawImage(colorCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+          pctx.putImageData(imageData, 0, 0);
+          ctx.drawImage(pixelatedCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
         } else {
-          ctx.drawImage(tempCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+          ctx.drawImage(pixelatedCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
         }
 
         const imageClasses = imageElements[i].className.split(/\s+/);
         if (imageClasses.length) {
           for (let j = 0; j < imageClasses.length; j += 1) {
-            canvas.classList.add(imageClasses[j]);
+            if (imageClasses[j].length) {
+              canvas.classList.add(imageClasses[j]);
+            }
           }
         }
         canvas.classList.add('pixelated');
@@ -3911,7 +3910,7 @@ Foundation.plugin(Sticky, 'Sticky');
      */
     mapColorToPalette(red, green, blue) {
       const self = crt;
-      let distance = 5000;
+      let distance = 25000;
       let color;
       let diffR;
       let diffG;

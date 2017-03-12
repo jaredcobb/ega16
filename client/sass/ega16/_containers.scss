@@ -6,7 +6,10 @@
 
 	#primary {
 
-		header.page-header {
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+
+		header.page-header, header.home-header {
 			margin-bottom: rem-calc(60);
 		}
 
@@ -18,12 +21,28 @@
 			margin-bottom: rem-calc(60);
 		}
 
+		.entry-meta {
+
+			span {
+				border-bottom: 3px dashed white;
+				padding-bottom: 5px;
+			}
+		}
+
+		.ega-form-wrapper {
+			margin-top: rem-calc(100);
+		}
+
 	}
 }
 
 // Sidebar
 // -------
 #sidebar-wrapper {
+	aside {
+		border: 13px double $ega-white;
+		padding: 1rem;
+	}
 	section {
 		margin-bottom: rem-calc(20px);
 	}

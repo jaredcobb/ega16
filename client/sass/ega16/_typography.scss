@@ -11,6 +11,10 @@ a:hover {
 	font-family: $header-font-family;
 }
 
+a.image-anchor:hover {
+	background-color: inherit;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	a {
 		color: $ega-light-cyan;
@@ -19,4 +23,8 @@ h1, h2, h3, h4, h5, h6 {
 		color: $ega-light-cyan;
 		background-color: inherit;
 	}
+}
+
+code {
+	font-size: rem-calc(12);
 }

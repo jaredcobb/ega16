@@ -23,7 +23,7 @@ $credits_query = new WP_Query( $args );
 
 	<footer id="colophon" class="site-footer row align-center" role="contentinfo">
 		<div class="site-info small-12 columns text-center">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ega16' ) ); ?>" target="_blank"><?php printf( esc_html__( 'Powered by %s', 'ega16' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ega16' ) ); ?>" target="_blank"><?php echo esc_html__( 'C:\WORDPRESS>', 'ega16' ); ?></a>
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( '%1$s by %2$s.', 'ega16' ), '<a href="https://github.com/jaredcobb/ega16" target="_blank">EGA 16</a>', 'Jared Cobb' ); ?>
 			<?php if ( $credits_query->post_count ) : ?>

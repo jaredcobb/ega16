@@ -15,7 +15,6 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="profile" href="http://gmpg.org/xfn/11">
-
 		<?php wp_head(); ?>
 	</head>
 
@@ -70,7 +69,7 @@
 							'menu' => 'Primary Menu',
 							'menu_class' => 'menu',
 							'depth' => 0,
-							'items_wrap' => '<ul id="%1$s" class="%2$s" data-parent-link="true" data-auto-height="true" data-responsive-menu="drilldown medium-dropdown" data-back-button="<li class=\'js-drilldown-back\'><a tabindex=\'0\'><span>&#9668;</span> Back</a></li>">%3$s</ul>',
+							'items_wrap' => '<ul id="%1$s" class="%2$s" data-auto-height="true" data-responsive-menu="drilldown medium-dropdown" data-back-button="<li class=\'js-drilldown-back\'><a tabindex=\'0\'><span>&#9668;</span> Back</a></li>">%3$s</ul>',
 							'walker' => new EGA16_Foundation_Topbar_Walker(),
 						) );
 					?>
@@ -86,12 +85,12 @@
 			</header><!-- #masthead -->
 
 			<?php
-			if ( true === get_theme_mod( 'global_callout_enabled' ) || ( true === get_theme_mod( 'homepage_callout_enabled' ) && is_home() ) ) {
+			if ( true === get_theme_mod( 'global_callout_enabled' ) || ( true === get_theme_mod( 'homepage_callout_enabled' ) && is_front_page() ) ) {
 				?>
 				<div class="row column align-center">
 					<div class="callout large primary">
 						<div>
-							<?php echo wp_kses_post( ( true === get_theme_mod( 'homepage_callout_enabled' ) && is_home() ) ? get_theme_mod( 'homepage_callout_content' ) : get_theme_mod( 'global_callout_content' ) ); ?>
+							<?php echo wp_kses_post( ( true === get_theme_mod( 'homepage_callout_enabled' ) && is_front_page() ) ? get_theme_mod( 'homepage_callout_content' ) : get_theme_mod( 'global_callout_content' ) ); ?>
 						</div>
 					</div>
 				</div>

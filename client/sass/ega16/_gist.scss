@@ -1,0 +1,51 @@
+// EGA GitHub Gist Styles
+// ----------------------
+.oembed-gist {
+
+	box-shadow: 0 0 0 5px, 11px 13px 0 4px $ega-black;
+	margin-bottom: 50px;
+    margin-top: 30px;
+
+	.gist {
+
+		.gist-file {
+
+			border-radius: 0;
+			border: 2px solid black;
+
+			.gist-data {
+
+				border-radius: 0;
+				padding: rem-calc(10);
+
+				tbody {
+					border: inherit;
+
+					tr:nth-child(even) {
+						background-color: inherit;
+					}
+				}
+			}
+
+			.gist-meta {
+				background-color: $ega-light-green;
+				border-radius: 0;
+				color: $ega-black;
+				font-family: $header-font-family;
+				font-size: rem-calc(10);
+
+				a {
+					color: $ega-light-blue;
+					font-weight: inherit;
+					padding: 0;
+				}
+
+				a:hover {
+					background-color: inherit;
+				}
+
+			}
+		}
+
+	}
+}

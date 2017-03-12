@@ -77,7 +77,8 @@ if ( ! class_exists( 'EGA16_Customizer' ) ) {
 			$this->add_post_message_support();
 			$this->add_global_section();
 			$this->add_global_callout();
-			$this->add_global_sidebar();
+			$this->add_archive_sidebar();
+			$this->add_single_sidebar();
 			$this->add_homepage_section();
 			$this->add_homepage_controls();
 			$this->add_audio_section();
@@ -151,26 +152,50 @@ if ( ! class_exists( 'EGA16_Customizer' ) ) {
 			) );
 		}
 
-		protected function add_global_sidebar() {
-			$this->wp_customize->add_setting( 'global_sidebar_enabled', array(
+		protected function add_archive_sidebar() {
+			$this->wp_customize->add_setting( 'archive_sidebar_enabled', array(
 				'type' => 'theme_mod',
 				'default' => true,
 			) );
-			$this->wp_customize->add_setting( 'global_sidebar_sticky', array(
+			$this->wp_customize->add_setting( 'archive_sidebar_sticky', array(
 				'type' => 'theme_mod',
 				'default' => true,
 			) );
 
-			$this->wp_customize->add_control( 'global_sidebar_enabled', array(
+			$this->wp_customize->add_control( 'archive_sidebar_enabled', array(
 				'type' => 'checkbox',
 				'section' => 'global_section',
-				'label' => __( 'Enable Sidebar On Blog Pages', 'ega16' ),
-				'description' => __( 'This allows you to enable / disable the sidebar on blog archives and single posts. Pages use a page template to enable / disable the sidebar.', 'ega16' ),
+				'label' => __( 'Enable Sidebar On Blog Archives', 'ega16' ),
+				'description' => __( 'This allows you to enable / disable the sidebar on blog archives. Pages use a page template to enable / disable the sidebar.', 'ega16' ),
 			) );
-			$this->wp_customize->add_control( 'global_sidebar_sticky', array(
+			$this->wp_customize->add_control( 'archive_sidebar_sticky', array(
 				'type' => 'checkbox',
 				'section' => 'global_section',
-				'label' => __( 'Make The Sidebar Sticky', 'ega16' ),
+				'label' => __( 'Make The Archive Sidebar Sticky', 'ega16' ),
+				'description' => __( 'Should the sidebar float down with the page as it scrolls?.', 'ega16' ),
+			) );
+		}
+
+		protected function add_single_sidebar() {
+			$this->wp_customize->add_setting( 'single_sidebar_enabled', array(
+				'type' => 'theme_mod',
+				'default' => true,
+			) );
+			$this->wp_customize->add_setting( 'single_sidebar_sticky', array(
+				'type' => 'theme_mod',
+				'default' => true,
+			) );
+
+			$this->wp_customize->add_control( 'single_sidebar_enabled', array(
+				'type' => 'checkbox',
+				'section' => 'global_section',
+				'label' => __( 'Enable Sidebar On Single Posts', 'ega16' ),
+				'description' => __( 'This allows you to enable / disable the sidebar on single blog posts. Pages use a page template to enable / disable the sidebar.', 'ega16' ),
+			) );
+			$this->wp_customize->add_control( 'single_sidebar_sticky', array(
+				'type' => 'checkbox',
+				'section' => 'global_section',
+				'label' => __( 'Make The Single Sidebar Sticky', 'ega16' ),
 				'description' => __( 'Should the sidebar float down with the page as it scrolls?.', 'ega16' ),
 			) );
 		}

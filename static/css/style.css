@@ -1957,7 +1957,7 @@ h1 {
   font-size: 2rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* line 332, node_modules/foundation-sites/scss/typography/_base.scss */
@@ -1965,7 +1965,7 @@ h2 {
   font-size: 1.5rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* line 332, node_modules/foundation-sites/scss/typography/_base.scss */
@@ -1973,7 +1973,7 @@ h3 {
   font-size: 1.5rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* line 332, node_modules/foundation-sites/scss/typography/_base.scss */
@@ -1981,7 +1981,7 @@ h4 {
   font-size: 1rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* line 332, node_modules/foundation-sites/scss/typography/_base.scss */
@@ -1989,7 +1989,7 @@ h5 {
   font-size: 1rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* line 332, node_modules/foundation-sites/scss/typography/_base.scss */
@@ -1997,7 +1997,7 @@ h6 {
   font-size: 1rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 @media print, screen and (min-width: 40em) {
@@ -2138,10 +2138,10 @@ figure {
 
 /* line 484, node_modules/foundation-sites/scss/typography/_base.scss */
 code {
-  padding: 0.125rem 0.3125rem 0.0625rem;
-  border: 1px solid #00aaaa;
-  background-color: #aaaaaa;
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  padding: 0.1875rem 0.375rem 0.125rem;
+  border: none;
+  background-color: #55ff55;
+  font-family: "IBM CGA", "Courier New", Courier, "Lucida Console", monospace;
   font-weight: normal;
   color: #000000;
 }
@@ -5890,46 +5890,51 @@ a.thumbnail image {
 }
 
 /* line 9, client/sass/ega16/_callout.scss */
+.callout img {
+  border: 0.75rem double #000000;
+}
+
+/* line 13, client/sass/ega16/_callout.scss */
 .callout.secondary {
   color: #aaaaaa;
   background-color: #aaaaaa;
 }
 
-/* line 14, client/sass/ega16/_callout.scss */
+/* line 18, client/sass/ega16/_callout.scss */
 .callout.primary {
   color: #55ffff;
   background-color: #55ffff;
 }
 
-/* line 19, client/sass/ega16/_callout.scss */
+/* line 23, client/sass/ega16/_callout.scss */
 .callout.success {
   color: #55ff55;
   background-color: #55ff55;
 }
 
-/* line 24, client/sass/ega16/_callout.scss */
+/* line 28, client/sass/ega16/_callout.scss */
 .callout.warning {
   color: #ffff55;
   background-color: #ffff55;
 }
 
-/* line 29, client/sass/ega16/_callout.scss */
+/* line 33, client/sass/ega16/_callout.scss */
 .callout.alert {
   color: #ff5555;
   background-color: #ff5555;
 }
 
-/* line 34, client/sass/ega16/_callout.scss */
+/* line 38, client/sass/ega16/_callout.scss */
 .callout > * {
   color: #000000;
 }
 
-/* line 38, client/sass/ega16/_callout.scss */
+/* line 42, client/sass/ega16/_callout.scss */
 .callout a {
   color: #5555ff;
 }
 
-/* line 42, client/sass/ega16/_callout.scss */
+/* line 46, client/sass/ega16/_callout.scss */
 .callout a:hover {
   color: #5555ff;
   background-color: #ffff55;
@@ -5974,14 +5979,20 @@ a.thumbnail image {
   margin-left: 10px;
 }
 
-/* line 5, client/sass/ega16/_elements.scss */
-#content img {
-  border: 0.75rem double #ffffff;
-  padding: 0.75rem;
+/* line 6, client/sass/ega16/_elements.scss */
+#page canvas {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
-/* line 12, client/sass/ega16/_elements.scss */
-#content ul li:before {
+/* line 14, client/sass/ega16/_elements.scss */
+#page #content img {
+  border: 0.75rem double #ffffff;
+}
+
+/* line 20, client/sass/ega16/_elements.scss */
+#page #content ul li:before {
   content: "\002593";
   font-size: 20px;
   left: -10px;
@@ -5991,7 +6002,7 @@ a.thumbnail image {
 }
 
 /* line 4, client/sass/ega16/_forms.scss */
-input[type='submit'], input[type='button'] {
+input[type='submit'], input[type='button'], button {
   padding: 4px 10px;
   margin-bottom: 1.25rem;
   color: #000000;
@@ -6041,15 +6052,58 @@ a:hover {
   font-family: "IBM CGA", "Courier New", Courier, "Lucida Console", monospace;
 }
 
-/* line 15, client/sass/ega16/_typography.scss */
+/* line 14, client/sass/ega16/_typography.scss */
+a.image-anchor:hover {
+  background-color: inherit;
+}
+
+/* line 19, client/sass/ega16/_typography.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: #55ffff;
 }
 
-/* line 18, client/sass/ega16/_typography.scss */
+/* line 22, client/sass/ega16/_typography.scss */
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   color: #55ffff;
   background-color: inherit;
+}
+
+/* line 28, client/sass/ega16/_typography.scss */
+code {
+  font-size: 0.75rem;
+}
+
+/* line 5, client/sass/ega16/_comments.scss */
+#page #content #comments h2.comments-title {
+  font-size: 1.5rem;
+}
+
+/* line 9, client/sass/ega16/_comments.scss */
+#page #content #comments img, #page #content #comments canvas.pixelated {
+  border: inherit;
+}
+
+/* line 13, client/sass/ega16/_comments.scss */
+#page #content #comments ol {
+  list-style: none;
+}
+
+/* line 17, client/sass/ega16/_comments.scss */
+#page #content #comments .comment-body {
+  margin-bottom: 40px;
+}
+
+/* line 21, client/sass/ega16/_comments.scss */
+#page #content #comments .comment-meta {
+  border: 1px solid white;
+  padding: 12px;
+}
+
+/* line 26, client/sass/ega16/_comments.scss */
+#page #content #comments .comment-content {
+  border: 6px double white;
+  padding: 12px;
+  margin: 10px 0;
 }
 
 /* line 3, client/sass/ega16/_containers.scss */
@@ -6057,27 +6111,50 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   margin-top: 2rem;
 }
 
-/* line 9, client/sass/ega16/_containers.scss */
-#content #primary header.page-header {
+/* line 7, client/sass/ega16/_containers.scss */
+#content #primary {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* line 12, client/sass/ega16/_containers.scss */
+#content #primary header.page-header, #content #primary header.home-header {
   margin-bottom: 3.75rem;
 }
 
-/* line 13, client/sass/ega16/_containers.scss */
+/* line 16, client/sass/ega16/_containers.scss */
 #content #primary article.post {
   margin-bottom: 3.75rem;
 }
 
-/* line 17, client/sass/ega16/_containers.scss */
+/* line 20, client/sass/ega16/_containers.scss */
 #content #primary div.custom-content {
   margin-bottom: 3.75rem;
 }
 
-/* line 27, client/sass/ega16/_containers.scss */
+/* line 24, client/sass/ega16/_containers.scss */
+#content #primary .entry-meta {
+  margin: 1rem 0 2rem;
+}
+
+/* line 26, client/sass/ega16/_containers.scss */
+#content #primary .entry-meta span {
+  border-bottom: 3px dashed white;
+  padding-bottom: 5px;
+}
+
+/* line 38, client/sass/ega16/_containers.scss */
+#sidebar-wrapper aside {
+  border: 13px double #ffffff;
+  padding: 1rem;
+}
+
+/* line 42, client/sass/ega16/_containers.scss */
 #sidebar-wrapper section {
   margin-bottom: 1.25rem;
 }
 
-/* line 35, client/sass/ega16/_containers.scss */
+/* line 50, client/sass/ega16/_containers.scss */
 footer.site-footer {
   margin-top: 3.75rem;
 }
@@ -6109,97 +6186,67 @@ footer.site-footer {
 
 @keyframes flash {
   0% {
-    opacity: 0.8222826712;
+    opacity: 0.698735097;
   }
-  3.3333333333% {
-    opacity: 0.063243624;
-  }
-  6.6666666667% {
-    opacity: 0.7956545199;
+  5% {
+    opacity: 0.9605079002;
   }
   10% {
-    opacity: 0.7820678802;
+    opacity: 0.0493084644;
   }
-  13.3333333333% {
-    opacity: 0.5736296475;
-  }
-  16.6666666667% {
-    opacity: 0.7331183502;
+  15% {
+    opacity: 0.9771344869;
   }
   20% {
-    opacity: 0.9535462004;
+    opacity: 0.3187672124;
   }
-  23.3333333333% {
-    opacity: 0.5288697707;
-  }
-  26.6666666667% {
-    opacity: 0.2356343474;
+  25% {
+    opacity: 0.5585144201;
   }
   30% {
-    opacity: 0.5457878185;
+    opacity: 0.7330200876;
   }
-  33.3333333333% {
-    opacity: 0.4032741161;
-  }
-  36.6666666667% {
-    opacity: 0.7302486092;
+  35% {
+    opacity: 0.2981987288;
   }
   40% {
-    opacity: 0.421474669;
+    opacity: 0.772523331;
   }
-  43.3333333333% {
-    opacity: 0.3659407841;
-  }
-  46.6666666667% {
-    opacity: 0.3871706903;
+  45% {
+    opacity: 0.2554447823;
   }
   50% {
-    opacity: 0.7302397498;
+    opacity: 0.9029377643;
   }
-  53.3333333333% {
-    opacity: 0.5948973689;
-  }
-  56.6666666667% {
-    opacity: 0.9042719573;
+  55% {
+    opacity: 0.1107710614;
   }
   60% {
-    opacity: 0.5192622284;
+    opacity: 0.0636754609;
   }
-  63.3333333333% {
-    opacity: 0.025950163;
-  }
-  66.6666666667% {
-    opacity: 0.5224146768;
+  65% {
+    opacity: 0.8719278623;
   }
   70% {
-    opacity: 0.5722191702;
+    opacity: 0.6890333463;
   }
-  73.3333333333% {
-    opacity: 0.8780222509;
-  }
-  76.6666666667% {
-    opacity: 0.8890325614;
+  75% {
+    opacity: 0.6156403497;
   }
   80% {
-    opacity: 0.6133292548;
+    opacity: 0.1478290463;
   }
-  83.3333333333% {
-    opacity: 0.4636057642;
-  }
-  86.6666666667% {
-    opacity: 0.8068060798;
+  85% {
+    opacity: 0.7125429045;
   }
   90% {
-    opacity: 0.1016052802;
+    opacity: 0.3251160364;
   }
-  93.3333333333% {
-    opacity: 0.8083750673;
-  }
-  96.6666666667% {
-    opacity: 0.2283477727;
+  95% {
+    opacity: 0.850926925;
   }
   100% {
-    opacity: 0.6213142831;
+    opacity: 0.4422535715;
   }
 }
 
@@ -6297,25 +6344,84 @@ body.crt-on .crt-toggle a:hover {
 }
 
 /* line 111, client/sass/ega16/_crt.scss */
-body.crt-on #content img {
+body.crt-on #content img:not(.no-crt) {
   display: none;
 }
 
 /* line 115, client/sass/ega16/_crt.scss */
+body.crt-on .callout img:not(.no-crt) {
+  display: none;
+}
+
+/* line 119, client/sass/ega16/_crt.scss */
 body.crt-on canvas.pixelated {
   border: 0.75rem double #ffffff;
-  padding: 0.75rem;
 }
 
 /* line 123, client/sass/ega16/_crt.scss */
+body.crt-on .callout canvas.pixelated {
+  border: 0.75rem double #000000;
+}
+
+/* line 129, client/sass/ega16/_crt.scss */
 body.crt-toggle-on .site {
   animation: turn-on 4s linear;
   animation-fill-mode: forwards;
 }
 
-/* line 130, client/sass/ega16/_crt.scss */
+/* line 136, client/sass/ega16/_crt.scss */
 body.crt-toggle-off .site {
   animation: turn-off 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* line 3, client/sass/ega16/_gist.scss */
+.oembed-gist {
+  box-shadow: 0 0 0 5px, 11px 13px 0 4px #000000;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+/* line 11, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file {
+  border-radius: 0;
+  border: 2px solid black;
+}
+
+/* line 16, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-data {
+  border-radius: 0;
+  padding: 0.625rem;
+}
+
+/* line 21, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-data tbody {
+  border: inherit;
+}
+
+/* line 24, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-data tbody tr:nth-child(even) {
+  background-color: inherit;
+}
+
+/* line 30, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-meta {
+  background-color: #55ff55;
+  border-radius: 0;
+  color: #000000;
+  font-family: "IBM CGA", "Courier New", Courier, "Lucida Console", monospace;
+  font-size: 0.625rem;
+}
+
+/* line 37, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-meta a {
+  color: #5555ff;
+  font-weight: inherit;
+  padding: 0;
+}
+
+/* line 43, client/sass/ega16/_gist.scss */
+.oembed-gist .gist .gist-file .gist-meta a:hover {
+  background-color: inherit;
 }
 
 /* line 4, client/sass/ega16/_utility.scss */

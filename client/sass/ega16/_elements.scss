@@ -1,22 +1,33 @@
 // EGA HTML Element Overrides
 // --------------------------
 
-#content {
-	img {
-		border: rem-calc(12) double $ega-white;
-		padding: rem-calc(12);
+#page {
+
+	canvas {
+		max-width: 100%;
+		height: auto;
+		vertical-align: middle;
 	}
 
-	ul {
-		li {
-			&:before {
-				content: "\002593";
-				font-size: 20px;
-				left: -10px;
-				position: relative;
-				top: -2px;
-				line-height: 2rem;
+	#content {
+
+		img {
+			border: rem-calc(12) double $ega-white;
+		}
+
+		ul {
+			li {
+				&:before {
+					content: "\002593";
+					font-size: 20px;
+					left: -10px;
+					position: relative;
+					top: -2px;
+					line-height: 2rem;
+				}
 			}
 		}
+
 	}
+
 }

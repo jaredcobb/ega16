@@ -9,8 +9,8 @@ $crt-pixels: #111010;
 // Keyframes
 // ---------
 @keyframes flash {
-	@for $i from 0 through 30 {
-		#{percentage($i*(1/30))}{
+	@for $i from 0 through 20 {
+		#{percentage($i*(1/20))}{
 			opacity:random();
 		}
 	}
@@ -108,15 +108,21 @@ body.crt-on {
 		}
 	}
 
-	#content img {
+	#content img:not(.no-crt) {
+		display:none;
+	}
+
+	.callout img:not(.no-crt) {
 		display:none;
 	}
 
 	canvas.pixelated {
 		border: rem-calc(12) double $ega-white;
-		padding: rem-calc(12);
 	}
 
+	.callout canvas.pixelated {
+		border: rem-calc(12) double $ega-black;
+	}
 }
 
 body.crt-toggle-on {

@@ -99,13 +99,13 @@ add_action( 'widgets_init', 'ega16_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ega16_scripts() {
-	wp_enqueue_style( 'ega16-style', get_template_directory_uri() . '/static/css/style.css' );
+	wp_enqueue_style( 'ega16-style', get_template_directory_uri() . '/static/css/style.min.css' );
 
 	// Use google for possible caching / cdn benefits.
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '', true );
 
-	wp_register_script( 'ega16-scripts', get_template_directory_uri() . '/static/js/ega16.dist.js', array( 'jquery' ), '', true );
+	wp_register_script( 'ega16-scripts', get_template_directory_uri() . '/static/js/ega16.min.js', array( 'jquery' ), '', true );
 
 	$data = array();
 
@@ -141,6 +141,11 @@ require get_template_directory() . '/inc/extras.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Zurb Foundation helpers
+ */
+require get_template_directory() . '/inc/class-ega16-foundation.php';
 
 /**
  * Load custom navigation walker class

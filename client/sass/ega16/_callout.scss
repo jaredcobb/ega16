@@ -6,6 +6,10 @@
 	color: $ega-white;
 	background-color: $ega-white;
 
+	img {
+		border: rem-calc(12) double $ega-black;
+	}
+
 	&.secondary {
 		color: $ega-light-gray;
 		background-color: $ega-light-gray;

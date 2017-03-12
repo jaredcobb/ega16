@@ -1,7 +1,7 @@
 // EGA Form Overrides
 // ------------------
 
-input[type='submit'], input[type='button'] {
+input[type='submit'], input[type='button'], button {
 	padding: 4px 10px;
 	margin-bottom: rem-calc(20);
 	color: $ega-black;

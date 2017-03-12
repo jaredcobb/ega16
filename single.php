@@ -7,11 +7,11 @@
  * @package ega16
  */
 
-$global_sidebar_enabled = get_theme_mod( 'global_sidebar_enabled', true );
+$single_sidebar_enabled = get_theme_mod( 'single_sidebar_enabled', true );
 
 get_header(); ?>
 
-	<div id="primary" class="small-12 <?php echo $global_sidebar_enabled ? 'medium-8 ' : ''; ?>columns">
+	<div id="primary" class="small-12 <?php echo $single_sidebar_enabled ? 'medium-8 ' : ''; ?>columns">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -31,7 +31,7 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-if ( $global_sidebar_enabled ) {
+if ( $single_sidebar_enabled ) {
 	get_sidebar();
 }
 get_footer();

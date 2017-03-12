@@ -6,7 +6,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/*! ega16 - v0.1.0 - 2017-03-05*/
+/*! ega16 - v0.1.0 - 2017-03-11*/
 !function ($) {
 
   "use strict";
@@ -4014,28 +4014,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     /**
-     * A PHP Developer's attempt at playing with canvas for the first time
+     * Use canvas to limit color scheme and pixelate the images
      */
     drawImages: function drawImages() {
       var self = this;
-      var imageElements = document.querySelectorAll('#content img');
+      var imageElements = document.querySelectorAll('#page img:not(.no-crt)');
       var w = void 0;
       var h = void 0;
       for (var i = 0; i < imageElements.length; i += 1) {
         var size = 0.5;
         var canvas = document.createElement('canvas');
-        var tempCanvas = document.createElement('canvas');
-        var colorCanvas = document.createElement('canvas');
+        var pixelatedCanvas = document.createElement('canvas');
         canvas.width = imageElements[i].width;
         canvas.height = imageElements[i].height;
-        tempCanvas.width = imageElements[i].width;
-        tempCanvas.height = imageElements[i].height;
+        pixelatedCanvas.width = imageElements[i].width;
+        pixelatedCanvas.height = imageElements[i].height;
 
         w = canvas.width * size;
         h = canvas.height * size;
         var ctx = canvas.getContext('2d');
-        var tempctx = tempCanvas.getContext('2d');
-        var colorctx = colorCanvas.getContext('2d');
+        var pctx = pixelatedCanvas.getContext('2d');
 
         var pixelatedImage = new Image();
         pixelatedImage.src = imageElements[i].src;
@@ -4044,12 +4042,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         ctx.webkitImageSmoothingEnabled = false;
         ctx.imageSmoothingEnabled = false;
 
-        tempctx.drawImage(pixelatedImage, 0, 0, w, h);
+        pctx.drawImage(pixelatedImage, 0, 0, w, h);
 
         var imageData = null;
 
         try {
-          imageData = tempctx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+          imageData = pctx.getImageData(0, 0, pixelatedCanvas.width, pixelatedCanvas.height);
         } catch (e) {
           imageData = null;
         }
@@ -4060,22 +4058,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var mappedColor = void 0;
           for (var j = 0; j < data.length; j += 4) {
             mappedColor = self.mapColorToPalette(data[j], data[j + 1], data[j + 2]);
-            if (data[j + 3] > 10 && typeof mappedColor !== 'undefined') {
+            if (data[j + 3] > 10) {
               data[j] = mappedColor.r;
               data[j + 1] = mappedColor.g;
               data[j + 2] = mappedColor.b;
             }
           }
-          colorctx.putImageData(imageData, 0, 0);
-          ctx.drawImage(colorCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+          pctx.putImageData(imageData, 0, 0);
+          ctx.drawImage(pixelatedCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
         } else {
-          ctx.drawImage(tempCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+          ctx.drawImage(pixelatedCanvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
         }
 
         var imageClasses = imageElements[i].className.split(/\s+/);
         if (imageClasses.length) {
           for (var _j = 0; _j < imageClasses.length; _j += 1) {
-            canvas.classList.add(imageClasses[_j]);
+            if (imageClasses[_j].length) {
+              canvas.classList.add(imageClasses[_j]);
+            }
           }
         }
         canvas.classList.add('pixelated');
@@ -4090,7 +4090,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
     mapColorToPalette: function mapColorToPalette(red, green, blue) {
       var self = crt;
-      var distance = 5000;
+      var distance = 25000;
       var color = void 0;
       var diffR = void 0;
       var diffG = void 0;
