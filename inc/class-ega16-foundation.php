@@ -126,7 +126,6 @@ if ( ! class_exists( 'EGA16_Foundation' ) ) {
 		 * @return void
 		 */
 		public function whitelist_foundation_data_attrs() {
-			xdebug_break();
 			global $allowedposttags;
 
 			foreach ( $this->tags as $tag ) {
