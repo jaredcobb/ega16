@@ -38,6 +38,8 @@ $credits_query = new WP_Query( $args );
 			<?php echo wp_kses_post( apply_filters( 'the_content', $credits_query->posts[0]->post_content ) ); ?>
 		</div>
 	<?php endif; ?>
+	<div class="reveal" id="ega-win" data-reveal>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

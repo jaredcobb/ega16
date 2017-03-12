@@ -6,6 +6,7 @@
     $body: $('body'),
     $document: $(document),
     $scoreWrapper: $('#game-header span.score'),
+    $winModal: $('#ega-win'),
     score: Cookies.get('ega16_score'),
     awardedClicks: Cookies.get('ega16_awarded_clicks'),
     awardedPages: Cookies.get('ega16_awarded_pages'),
@@ -78,6 +79,20 @@
     refreshScore() {
       const self = points;
       self.$scoreWrapper.text(self.score);
+      if (parseInt(self.score, 10) === parseInt(EGA16.points_total, 10)) {
+        self.displayWinner();
+      }
+    },
+
+    displayWinner() {
+      const self = points;
+      const data = {
+        action: 'get_win_content',
+        nextNonce: EGA16.nonce,
+      };
+      $.post(EGA16.ajaxurl, data, (response) => {
+        self.$winModal.html(response).foundation('open');
+      });
     },
 
   };

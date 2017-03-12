@@ -76,6 +76,9 @@ if ( ! class_exists( 'EGA16_Points' ) ) {
 		 * @return void
 		 */
 		public function setup() {
+			add_action( 'wp_ajax_nopriv_get_win_content', array( $this, 'get_win_content' ) );
+			add_action( 'wp_ajax_get_win_content', array( $this, 'get_win_content' ) );
+
 			$this->theme_mods = get_theme_mods();
 			if ( ! empty( $this->theme_mods['points_enabled'] ) && true === $this->theme_mods['points_enabled'] ) {
 				$this->points_enabled = true;
@@ -149,6 +152,20 @@ if ( ! class_exists( 'EGA16_Points' ) ) {
 			return $points_click_selectors;
 		}
 
+		public function get_win_content() {
+			$args = array(
+				'name' => 'win',
+				'post_type' => 'page',
+				'post_status' => 'publish',
+				'numberposts' => 1,
+			);
+			$win_query = new WP_Query( $args );
+
+			if ( $win_query->post_count ) {
+				echo apply_filters( 'the_content', $win_query->posts[0]->post_content );
+			}
+			wp_die();
+		}
 	}
 
 }

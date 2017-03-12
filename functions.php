@@ -109,11 +109,14 @@ function ega16_scripts() {
 
 	$data = array();
 
+	$data['nonce'] = wp_create_nonce( 'ega16' );
+	$data['ajaxurl'] = admin_url( 'admin-ajax.php' );
 	$data['template_directory'] = get_template_directory_uri();
 	$data['audio_enabled'] = EGA16_Audio::instance()->audio_enabled();
 	$data['audio_page_hash'] = EGA16_Audio::instance()->get_audio_page_hash();
 	$data['audio_toggle_file'] = EGA16_Audio::instance()->get_audio_toggle_file();
 	$data['points_enabled'] = EGA16_Points::instance()->points_enabled();
+	$data['points_total'] = EGA16_Points::instance()->get_total_points();
 	$data['points_page_selectors'] = EGA16_Points::instance()->get_points_page_selectors();
 	$data['points_click_selectors'] = EGA16_Points::instance()->get_points_click_selectors();
 
